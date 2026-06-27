@@ -2,7 +2,7 @@
 
 header('Content-Type: application/json');
 
-include 'db_connection.php';
+include '../config/db_connection.php';
 
 $sql = "SELECT categoryid, category FROM category ORDER BY category ASC";
 

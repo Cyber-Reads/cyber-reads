@@ -5,7 +5,7 @@ if (!isset($_SESSION['admin_loggedin']) || $_SESSION['admin_loggedin'] !== true)
     exit;
 }
 
-require '../db_connection.php'; // [[11]]
+require '../src/config/db_connection.php';
 
 $book_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 

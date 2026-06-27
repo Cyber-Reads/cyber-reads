@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'header.php'; // [[15]]
-require '../db_connection.php'; // [[11]]
+require '../src/config/db_connection.php';
 
 $book_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 if (!$book_id) {

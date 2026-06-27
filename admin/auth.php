@@ -3,7 +3,7 @@
 session_start();
 
 
-require  '../db_connection.php';
+require '../src/config/db_connection.php';
 
 if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
     
@@ -36,7 +36,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
         
         else {
             
-            header("location: ../admin.php?error=1" );
+            header("location: admin.php?error=1");
             exit();
 
         }
@@ -44,7 +44,7 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
     
     else {
         
-        header("location: ../admin.php?error=1");
+        header("location: admin.php?error=1");
         exit();
     }
     

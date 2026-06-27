@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'header.php';
-require '../db_connection.php' ;
+require '../src/config/db_connection.php';
 
 $error = '';
 $success = '';
@@ -11,20 +11,20 @@ if ( $_SERVER["REQUEST_METHOD"]  == "POST" && isset($_POST['add_author']) ) {
 
     $fname = trim(mysqli_real_escape_string($conn, $_POST['authorfname']));
     $lname = trim(mysqli_real_escape_string($conn, $_POST['authorlname']));
-    
+
     if (!empty($fname) && !empty($lname)) {
-        
+
         $sql = "INSERT INTO author (authorfname, authorlname) VALUES ('$fname', '$lname')";
-        
+
         if (mysqli_query($conn, $sql)) {
             $success = "Author added successfully!";
-        } 
-        
+        }
+
         else {
             $error = "Error adding author.";
         }
-    } 
-    
+    }
+
     else {
         $error = "First name and last name are required.";
 
@@ -33,24 +33,24 @@ if ( $_SERVER["REQUEST_METHOD"]  == "POST" && isset($_POST['add_author']) ) {
 
 // Delete author
 if (isset($_GET['delete'])) {
-    
+
     $author_id = intval($_GET['delete']);
-    
+
     // Check if author has books
     $check_sql = "SELECT COUNT(*) as count FROM books_has_author WHERE author_authorid = $author_id";
     $check_result = mysqli_query($conn, $check_sql);
     $result = mysqli_fetch_assoc($check_result);
-    
+
     if ($result['count'] > 0) {
         $error = "Cannot delete author with existing books. Please reassign or delete the books first.";
-    } 
+    }
     else {
         $delete_sql = "DELETE FROM author WHERE authorid = $author_id";
-        
+
         if (mysqli_query($conn, $delete_sql)) {
             $success = "Author deleted successfully!";
-        } 
-        
+        }
+
         else {
             $error = "Error deleting author.";
         }
@@ -79,10 +79,10 @@ $authors =  mysqli_fetch_all($authors_result, MYSQLI_ASSOC);
     </div>
 
     <?php endif; ?>
-    
+
     <?php if($success): ?>
     <div class = "bg-green-50 border-l-4  text-green-800 p-4 rounded-r-lg mb-6 border-green-500 " role = "alert">
-        
+
         <p class = "font-bold ">Success:</p>
         <p><?php echo $success; ?></p >
 
@@ -93,19 +93,19 @@ $authors =  mysqli_fetch_all($authors_result, MYSQLI_ASSOC);
 
     <div class = " bg-white shadow-lg p-8 mb-8 rounded-2xl ">
         <h2 class = " text-xl font-semibold text-gray-800 mb-6">Add New Author</h2>
-        
+
         <form method = "POST" action = "author_manage.php" class = " gap-6 grid grid-cols-1 md:grid-cols-3 items-end">
-            
+
             <div class = "md:col-span-1">
                 <label class = "  text-gray-700 block text-sm font-medium">First Name</label>
                 <input type = "text" name = "authorfname" required class = "  border-gray-300 rounded-lg shadow-sm py-2 px-3 mt-1 block w-full bg-gray-50 focus:outline-none focus:ring-purple-500 focus:border-purple-500 transition">
             </div>
-            
+
             <div class = "md:col-span-1">
                 <label class = "block text-sm font-medium text-gray-700">Last Name</label>
                 <input type = "text" name = "authorlname" required class = " shadow-sm py-2 px-3 focus:outline-none mt-1 block w-full bg-gray-50 border-gray-300 rounded-lg  focus:ring-purple-500 focus:border-purple-500 transition">
             </div>
-            
+
             <div  class = "md:col-span-1" >
                 <button type = "submit" name = "add_author" class = " border-transparent shadow-sm font-medium rounded-lg text-white bg-black hover:bg-purple-950 focus:outline-none w-full inline-flex justify-center py-2 px-6 border  focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition">
                     Add Author
@@ -114,7 +114,7 @@ $authors =  mysqli_fetch_all($authors_result, MYSQLI_ASSOC);
              </div>
 
         </form>
-    
+
     </div>
 
     <div class = "bg-white overflow-hidden rounded-2xl  shadow-lg ">
@@ -122,11 +122,11 @@ $authors =  mysqli_fetch_all($authors_result, MYSQLI_ASSOC);
             <h2 class = "  text-gray-900 text-xl font-semibold">All Authors</h2 >
         </div>
         <div class=" lg:grid-cols-3 gap-4 p-6 grid grid-cols-1 md:grid-cols-2 ">
-            <?php 
-            if (!empty($authors)): 
+            <?php
+            if (!empty($authors)):
             ?>
-                <?php 
-                foreach ($authors as $author): 
+                <?php
+                foreach ($authors as $author):
                 ?>
 
                 <div class = " justify-between items-center border border-gray-200 hover:shadow-md bg-gray-50 rounded-xl p-4 flex  transition-shadow">
@@ -144,19 +144,19 @@ $authors =  mysqli_fetch_all($authors_result, MYSQLI_ASSOC);
 
                 </div>
 
-                <?php endforeach; 
+                <?php endforeach;
                 ?>
             <?php else: ?>
                 <p class = "  text-center py-8 text-gray-500 col-span-full" >No authors found. Add one using the form above.</p>
             <?php endif; ?>
-        
+
         </div>
 
-    
+
     </div>
 </div>
 
-<?php 
+<?php
 mysqli_close($conn);
 include 'footer.php'; // [[12]]
 ?>

@@ -1,7 +1,7 @@
 <?php
 // 1. සියලුම PHP logic මෙතනින් ආරම්භ කරන්න
 session_start(); // Session එක මෙතනින් ආරම්භ කිරීම වඩාත් සුදුසුයි
-require '../db_connection.php'; // [[11]]
+require '../src/config/db_connection.php';
 
 // Fetch authors and categories
 $authors_result = mysqli_query($conn, "SELECT authorid, authorfname, authorlname FROM author ORDER BY authorfname");

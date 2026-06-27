@@ -38,7 +38,7 @@ function loadCategories() {
     const categoryContainer = document.getElementById('categoryCheckboxes');
     if (!categoryContainer) return;
 
-    fetch( 'get_categories.php' )
+    fetch( 'src/books/get_categories.php' )
         .then(response => response.json())
         .then(categories => {
             categoryContainer.innerHTML = '';
@@ -86,7 +86,7 @@ function loadBooks(category_ids = []) {
 
     bookGrid.innerHTML = '<p class="text-purple-800 text-center col-span-full">Loading books...</p>';
 
-    fetch('filter_books.php', {
+    fetch('src/books/filter_books.php', {
 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

@@ -4,7 +4,7 @@ session_start();
 
 
 if (isset($_SESSION['admin_loggedin']) && $_SESSION['admin_loggedin'] === true) {
-    header("location: admin/dashboard.php");
+    header("location: dashboard.php");
     exit;
 }
 
@@ -24,7 +24,7 @@ if (isset($_SESSION['admin_loggedin']) && $_SESSION['admin_loggedin'] === true) 
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/png" href="img/icon.png">
-    <link rel="stylesheet" href="admin.css"/>
+    <link rel="stylesheet" href="../assets/css/admin.css"/>
 
 </head>
 <body class="items-center justify-center p-4 relative min-h-screen flex ">
@@ -80,7 +80,7 @@ if (isset($_SESSION['admin_loggedin']) && $_SESSION['admin_loggedin'] === true) 
                     <div class="text-center mb-8">
                         <div class="inline-block hover-lift cursor-pointer">
                             <div class="logo-box w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                <img src="img/logo1.jpg" alt="">
+                                <img src="../assets/img/logo1.jpg" alt="">
                             </div>
                             <h1 class="title text-3xl font-bold mb-2">
                                 Welcome Back
@@ -116,7 +116,7 @@ if (isset($_SESSION['admin_loggedin']) && $_SESSION['admin_loggedin'] === true) 
                     ?>
 
                     <!-- Form -->
-                    <form class="space-y-5" action="admin/auth.php" method="POST">
+                    <form class="space-y-5" action="auth.php" method="POST">
 
                         <!-- Email Input -->
                         <div class="group">

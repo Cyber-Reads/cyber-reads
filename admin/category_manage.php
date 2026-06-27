@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'header.php'; // [[17]]
-require '../db_connection.php'; // [[11]]
+require '../src/config/db_connection.php';
 
 $error = '';
 $success = '';

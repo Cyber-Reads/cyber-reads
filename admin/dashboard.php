@@ -1,7 +1,7 @@
 <?php
 session_start(); // Session එක මෙතනින් ආරම්භ කරන්න
 include 'header.php'; // [[14]]
-require '../db_connection.php'; // [[11]]
+require '../src/config/db_connection.php'; // [[11]]
 
 $books = [];
 $sql = "SELECT bookid, title, cover FROM books ORDER BY bookid DESC";

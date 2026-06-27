@@ -116,7 +116,7 @@ document.addEventListener( 'DOMContentLoaded' , function ()  {
         };
 
         // Open and send requests
-        xhr.open('GET', 'get_book_details.php?id=' + bookId);
+        xhr.open('GET', 'src/books/get_book_details.php?id=' + bookId);
         xhr.send();
 
     } else {

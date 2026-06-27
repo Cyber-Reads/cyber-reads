@@ -12,7 +12,7 @@ if (!isset($_SESSION['admin_loggedin']) || $_SESSION['admin_loggedin'] !== true)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Cyber Reads</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/png" href="../img/icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { font-family: 'Inter', sans-serif; }
@@ -34,7 +34,7 @@ if (!isset($_SESSION['admin_loggedin']) || $_SESSION['admin_loggedin'] !== true)
             <div class="flex items-center space-x-3">
                 <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 ...">
     <!-- SVG එක වෙනුවට img tag එක යොදන්න -->
-                    <img src="img/logo1.jpg" alt="Logo" class="w-15 h-15">
+                    <img src="../assets/img/logo1.jpg" alt="Logo" class="w-15 h-15">
                 </div>
 
                 <div>
