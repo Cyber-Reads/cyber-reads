@@ -1,0 +1,48 @@
+# ==========================================
+# 1. Frontend Dependencies & Build Outputs
+# ==========================================
+node_modules/
+dist/
+build/
+.cache/
+.parcel-cache/
+
+# ==========================================
+# 2. IDE & Editors Settings (Local Configurations)
+# ==========================================
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# 3. Backend (PHP & Temporary Files)
+# ==========================================
+# Upload වන පොත් හෝ රූප (අවශ්‍ය නම් පමණක් සක්‍රීය කරන්න)
+# assets/img/uploads/
+
+# Testing logs
+*.log
+vendor/
+composer.lock
+
+# ==========================================
+# 4. Environment Variables (Sensitive Data)
+# ==========================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ==========================================
+# 5. Compiled Java/Other Class Files (If applicable)
+# ==========================================
+*.class
+target/
+.mtj.tmp/

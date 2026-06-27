@@ -1,0 +1,562 @@
+<div class=" flex items-center w-full h-[20%]   justify-end ">
+            <!-- Name -->
+            <!-- <div class="h-full w-[28%] bg-neutral-950 items-center ">
+                <p class="text-3xl sm:text-5xl md:text-6xl font-bold text-white m-2">
+                    CYBER READS
+                </p>
+            </div> -->
+
+            <!-- Profile Button and fillter -->
+            <div class="flex">
+                <!-- Profile Button -->
+                 <!-- <div class="auth-section-wrapper">
+                    <button data-modal-target="auth-modal" data-modal-toggle="auth-modal" class="group relative h-12 rounded-full border-2 border-white bg-transparent px-4 text-white m-2" type="button">
+                        <span class="relative inline-flex overflow-hidden">
+                            <div class="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[110%] group-hover:skew-y-12 text-white font-bold">
+                                Profile
+                            </div>
+                            <div class="absolute translate-y-[110%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0 text-white font-bold">
+                                Profile
+                            </div>
+                        </span>
+                    </button>
+
+                    <div id="auth-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                        <div class="relative p-4 w-full max-w-md max-h-full">
+                            <div class="relative bg-gray-800 rounded-lg shadow-xl dark:bg-gray-700">
+                                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                    <h3 class="text-xl font-semibold text-white dark:text-white">
+                                        Access Your Account
+                                    </h3>
+                                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="auth-modal">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                        </svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+                                <div class="p-4 md:p-5">
+                                    <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+                                        <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
+                                            <li class="me-2" role="presentation">
+                                                <button class="inline-block p-4 border-b-2 rounded-t-lg text-blue-600 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500 border-blue-600 dark:border-blue-500" id="login-tab" data-tabs-target="#login-content" type="button" role="tab" aria-controls="login-content" aria-selected="true">Login</button>
+                                            </li>
+                                            <li class="me-2" role="presentation">
+                                                <button class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="register-tab" data-tabs-target="#register-content" type="button" role="tab" aria-controls="register-content" aria-selected="false">Register</button>
+                                            </li>
+                                        </ul>
+                                        <div id="default-tab-content">
+                                            <div class="hidden p-4 rounded-lg bg-gray-800 dark:bg-gray-800" id="login-content" role="tabpanel" aria-labelledby="login-tab">
+                                                <form class="space-y-4" action="#">
+                                                    <div>
+                                                        <label for="login-email" class="block mb-2 text-sm font-medium text-white dark:text-white">Your email</label>
+                                                        <input type="email" name="email" id="login-email" class="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@email.com" required />
+                                                    </div>
+                                                    <div>
+                                                        <label for="login-password" class="block mb-2 text-sm font-medium text-white dark:text-white">Your password</label>
+                                                        <input type="password" name="password" id="login-password" placeholder="••••••••" class="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                                                    </div>
+                                                    <div class="flex justify-between">
+                                                        <div class="flex items-start">
+                                                            <div class="flex items-center h-5">
+                                                                <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" />
+                                                            </div>
+                                                            <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
+                                                        </div>
+                                                        <a href="#" class="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost Password?</a>
+                                                    </div>
+                                                    <button type="submit" class="w-full text-black bg-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-b-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800 hover:text-white">Login to your account</button>
+                                                    <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+                                                        Not registered? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500" data-tabs-target="#register-content" data-tabs-toggle="#default-tab-content #register-tab" id="switch-to-register">Create account</a>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div class="hidden p-4 rounded-lg bg-gray-800 dark:bg-gray-800" id="register-content" role="tabpanel" aria-labelledby="register-tab">
+                                                <form class="space-y-4" action="#">
+                                                    <div>
+                                                        <label for="register-email" class="block mb-2 text-sm font-medium text-white dark:text-white">Your email</label>
+                                                        <input type="email" name="email" id="register-email" class="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@email.com" required />
+                                                    </div>
+                                                    <div>
+                                                        <label for="register-password" class="block mb-2 text-sm font-medium text-white dark:text-white">Your password</label>
+                                                        <input type="password" name="password" id="register-password" placeholder="••••••••" class="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                                                    </div>
+                                                    <div>
+                                                        <label for="confirm-password" class="block mb-2 text-sm font-medium text-white dark:text-white">Confirm password</label>
+                                                        <input type="password" name="confirm-password" id="confirm-password" placeholder="••••••••" class="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                                                    </div>
+                                                    <button type="submit" class="w-full text-black bg-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-white dark:hover:bg-gray-700 dark:focus:ring-gray-800 hover:text-white">Create new account</button>
+                                                    <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+                                                        Already have an account? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500" data-tabs-target="#login-content" data-tabs-toggle="#default-tab-content #login-tab" id="switch-to-login">Login here</a>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Fillter Button -->
+                
+                <button id="filterMenuButton" data-dropdown-toggle="filterCategoriesDropdown" type="button" class="p-3  text-black hover:bg-gray-900 hover:bg-opacity-5 m-1 rounded-lg shadow-md transition-colors duration-300">
+                    <div class="relative h-6 w-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" class="absolute inset-0 h-full w-full text-gray-600">
+                            <path d="M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s5.6 30.2-2.4 43.7L320 320.9V448c0 10.7-5.3 20.7-14.3 26.6s-21.5 6.8-32.8 1.6l-48-24c-11.1-5.5-18.1-16.4-18.1-28.6V320.9L6.3 98.6C-2.4 85.1-1.2 68.9 3.9 54.9z"/>
+                        </svg>
+                    </div>
+                </button>
+
+                <!-- නිවැරදි කරන ලද Dropdown මෙනුව -->
+                <div id="filterCategoriesDropdown" class="z-50 hidden bg-gray-600 rounded-lg shadow-xl w-64 dark:bg-white" data-popper-placement="bottom-end">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-3 text-gray-900 dark:text-black">Category</h3>
+                        
+                        <!-- JavaScript මගින් Checkboxes මෙතනට load කරනු ඇත -->
+                        <div class="space-y-3" id="categoryCheckboxes">
+                            <!-- Static checkboxes මෙතනින් ඉවත් කර ඇත -->
+                        </div>
+                    </div>
+                    <div class="px-4 py-3 bg-gray-100 dark:bg-gray-400 flex justify-end space-x-2 rounded-b-lg">
+                        <button type="button" id="clearFilterButton" class="text-sm px-4 py-2 rounded-lg bg-gray-600 font-bold hover:bg-red-700 text-white">Clear</button>
+                        <button type="button" id="applyFilterButton" class="text-sm px-4 py-2 rounded-lg bg-blue-600 font-bold hover:bg-blue-700 text-white">Filter Now</button>
+                    </div>
+                </div>
+
+
+                
+            </div>
+            
+        </div>
+
+<div class="w-full flex-grow bg-black flex items-center justify-center p-4 overflow-hidden" >
+            <div class="container flex flex-wrap justify-center items-center gap-6 h-full">
+                <div class="card w-48 h-64 bg-gray-300 rounded-lg overflow-hidden relative">
+                    <img src="assets/img/homePage/2.jpg" alt=""/>
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity duration-300 text-white text-lg font-semibold">
+                        <p>HORROR BOOKS</p>
+                    </div>
+                </div>
+                <div class="card w-48 h-64 bg-gray-300 rounded-lg overflow-hidden relative">
+                    <img src="assets/img/homePage/9.jpg" alt=""/>
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity duration-300 text-white text-lg font-semibold">
+                        <p>ROMANCE BOOKS</p>
+                    </div>
+                </div>
+                <div class="card w-48 h-64 bg-gray-300 rounded-lg overflow-hidden relative">
+                    <img src="assets/img/homePage/7.jpg" alt=""/>
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity duration-300 text-white text-lg font-semibold">
+                        <p>MYSTERY BOOKS</p>
+                    </div>
+                </div>
+                <div class="card w-48 h-64 bg-gray-300 rounded-lg overflow-hidden relative">
+                    <img src="assets/img/homePage/4.jpg" alt=""/>
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity duration-300 text-white text-lg font-semibold">
+                        <p>SCI-FI BOOKS</p>
+                    </div>
+                </div>
+                <div class="card w-48 h-64 bg-gray-300 rounded-lg overflow-hidden relative">
+                    <img src="assets/img/homePage/8.jpg" alt=""/>
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity duration-300 text-white text-lg font-semibold">
+                        <p>HISTORY BOOKS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+    <link rel="icon" type="image/png" href="assets/img/icon.png">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background: #000000; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1a1a1a; }
+        ::-webkit-scrollbar-thumb { background: #404040; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #8b5cf6; }
+        .glass-effect { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .pdf-container { background: #0a0a0a; border: 1px solid #262626; box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5); }
+        .btn-primary { background: linear-gradient(135deg, #181818 0%, #242424 100%); border: 1px solid #404040; position: relative; overflow: hidden; transition: all 0.3s ease; }
+        .btn-primary:hover { border-color: #b2b0b6; box-shadow: 0 0 20px rgba(109, 111, 115, 0.641); }
+        .btn-primary::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; background: rgba(255, 255, 255, 0.1); border-radius: 50%; transform: translate(-50%, -50%); transition: width 0.6s, height 0.6s; }
+        .btn-primary:hover::before { width: 300px; height: 300px; }
+    </style> 
+</head>
+<body class="bg-white text-gray-900">
+
+    <section class="w-full h-screen flex flex-col bg-gray-100 text-zinc-950">
+        <nav class="sticky top-0 z-50 glass-effect border-b bg-purple-50/20 flex-shrink-0">
+            <div class="flex w-full h-20 items-center px-6 lg:px-12">
+                <div class="flex w-full items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-purple-600/20 blur-xl"></div>
+                            <img src="assets/img/logo1.jpg" alt="logo" class="h-16 relative z-10 rounded-lg">
+                        </div>
+                        <h2 class="text-2xl lg:text-3xl font-bold gradient-text text-outline-shadow-white">CYBER READS</h2>
+                    </div>
+                    <button id="homeButton" class="relative px-6 py-3 bg-black rounded-full text-gray-100 font-medium hover-lift">
+                        <span class="relative z-10 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                            Home
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="flex-1 flex flex-col lg:flex-row overflow-hidden">
+            <div class="w-full lg:w-[40%] h-1/2 lg:h-full bg-gradient-to-br from-zinc-900 to-black p-8 flex items-center justify-center">
+                <div class="relative max-w-md w-full">
+                    <div class="absolute inset-0 bg-purple-600/10 blur-3xl"></div>
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                        <img id="bookCover" class="w-full h-auto object-cover rounded-2xl shadow-2xl hover-lift relative z-10" src="" alt="Book Cover" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-[60%] h-1/2 lg:h-full bg-gradient-to-br rounded-2xl from-gray-100 to-gray-200 text-black p-8 overflow-y-auto">
+                <div class="max-w-3xl mx-auto flex flex-col h-full">
+                    <div class="flex-grow">
+                        <h1 id="bookTitle" class="text-4xl lg:text-6xl font-bold mb-2 gradient-text"></h1>
+                        <p id="bookAuthor" class="text-xl text-gray-600 mb-6"></p>
+                        <div id="bookCategories" class="flex flex-wrap gap-4 mb-8">
+                            <!-- Categories will be loaded here by JS -->
+                        </div>
+                        <div class="glass-effect p-6 rounded-2xl mb-8">
+                            <div id="bookDescription" class="text-gray-950 leading-relaxed text-lg">
+                                <!-- Description will be loaded here by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 mt-auto pt-4">
+                        <a id="readNowLink" href="#readNow" class="btn-primary flex-1 py-4 rounded-xl text-center font-medium text-white bg-slate-200 hover-lift">
+                            <span class="relative z-10 flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                                Read Now
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="readNow" class="w-full min-h-screen bg-black py-8">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="glass-effect rounded-t-2xl p-6 border-b border-gray-800">
+                <h3 id="readingModeTitle" class="text-2xl font-bold gradient-text">Reading Mode</h3>
+            </div>
+            <div class="pdf-container rounded-b-2xl overflow-hidden" style="height: 80vh;">
+                <iframe id="pdfIframe" src="" class="w-full h-full">
+                    <p class="text-gray-400 p-8 text-center">PDF viewer not supported.</p>
+                </iframe>
+            </div>
+            <div class="flex justify-center mt-8">
+                <a id="downloadLink" href="#" download class="btn-primary group px-8 py-4 rounded-xl font-medium hover-lift flex items-center gap-3">
+                    <svg class="w-6 h-6 text-purple-400 group-hover:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/></svg>
+                    <span class="relative z-10 text-gray-100">Download Book</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/js/bookRead.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+<section class="h-screen w-full bg-black flex flex-col">
+        <!--navigation bar-->
+        <nav class="w-full h-[20%] bg-white flex items-center justify-between px-4 sm:px-8 top-0 z-50 shadow-md">
+            
+            <img src = "assets/img/logo1.jpg" alt="LOGO" class="h-full">
+            
+            <p class = "font-bold text-3xl sm:text-5xl md:text-7xl  text-gray-800">
+                CYBER      READS
+            </p>
+            
+            <a href="#aboutPage" class="relative h-[40%] w-[10%] flex items-center justify-center overflow-hidden rounded-full bg-neutral-950 px-5 py-2.5 font-bold text-white transition-all duration-300 hover:bg-neutral-800 hover:ring-2 hover:ring-neutral-800 hover:ring-offset-2">
+                <span class="relative">About us</span>
+            </a>
+
+        </nav>
+
+        <!-- section 2 -->
+        <div class="w-full flex-grow bg-black flex items-center justify-center p-4 overflow-hidden" >
+            <div class="container flex flex-wrap justify-center items-center gap-6 h-full">
+
+                <div class="card w-56 h-72 rounded-xl overflow-hidden relative group cursor-pointer transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 shadow-xl hover:shadow-2xl hover:shadow-red-500/30">
+                    <img src="assets/img/homePage/2.jpg" alt="Horror" class="w-full h-full object-cover"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-red-900/90 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                            <p class="text-white text-xl font-bold tracking-wider">HORROR BOOKS</p>
+                            <p class="text-gray-300 text-sm mt-2">Spine-chilling tales</p>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            NEW
+                        </div>
+                    </div>
+                
+
+                <!-- Romance Card -->
+                <div class="card w-56 h-72 rounded-xl overflow-hidden relative group cursor-pointer transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 shadow-xl hover:shadow-2xl hover:shadow-pink-500/30">
+                    <img src="assets/img/homePage/9.jpg" alt="Romance" class="w-full h-full object-cover"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-pink-900/90 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-white text-xl font-bold tracking-wider">ROMANCE</p>
+                        <p class="text-gray-300 text-sm mt-2">Love stories & passion</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-pink-600 text-white px-3 py-1 rounded-full text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        HOT
+                    </div>
+                </div>
+
+                <!-- Mystery Card -->
+                <div class="card w-56 h-72 rounded-xl overflow-hidden relative group cursor-pointer transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 shadow-xl hover:shadow-2xl hover:shadow-purple-500/30">
+                    <img src="assets/img/homePage/7.jpg" alt="Mystery" class="w-full h-full object-cover"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-purple-900/90 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-white text-xl font-bold tracking-wider">MYSTERY</p>
+                        <p class="text-gray-300 text-sm mt-2">Puzzles & thrillers</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        TRENDING
+                    </div>
+                </div>
+                
+                <!-- Sci-Fi Card -->
+                <div class="card w-56 h-72 rounded-xl overflow-hidden relative group cursor-pointer transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 shadow-xl hover:shadow-2xl hover:shadow-blue-500/30">
+                    <img src="assets/img/homePage/4.jpg" alt="Sci-Fi" class="w-full h-full object-cover"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-white text-xl font-bold tracking-wider">SCI-FI</p>
+                        <p class="text-gray-300 text-sm mt-2">Future & technology</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        POPULAR
+                    </div>
+                </div>
+
+                <!-- History Card -->
+                <div class="card w-56 h-72 rounded-xl overflow-hidden relative group cursor-pointer transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 shadow-xl hover:shadow-2xl hover:shadow-amber-500/30">
+                    <img src="assets/img/homePage/8.jpg" alt="History" class="w-full h-full object-cover"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-amber-900/90 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-white text-xl font-bold tracking-wider">HISTORY</p>
+                        <p class="text-gray-300 text-sm mt-2">Past & heritage</p>
+                    </div>
+                    <div class="absolute top-4 right-4 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        CLASSIC
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- button section -->
+        <div class="w-full h-[15%] bg-white flex items-center justify-center ">
+
+            <a href="#libraryPage" class="group relative inline-flex w-[20%] h-[calc(48px+8px)] items-center justify-center rounded-full bg-neutral-950 py-1 pl-6 pr-14 font-black text-xl text-neutral-100">
+                <span class="z-10 pr-2">Go to library</span>
+                <div class="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-full bg-neutral-700 transition-[width] group-hover:w-[calc(100%-8px)]">
+                <div class="mr-3.5 flex items-center justify-center">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-neutral-50">
+                <path d="M7.14645 11.8536C7.34171 12.0488 7.65829 12.0488 7.85355 11.8536L11.8536 7.85355C12.0488 7.65829 12.0488 7.34171 11.8536 7.14645L7.85355 3.14645C7.65829 2.95118 7.34171 2.95118 7.14645 3.14645C6.95118 3.34171 6.95118 3.65829 7.14645 3.85355L10.2929 7H2.5C2.22386 7 2 7.22386 2 7.5C2 7.77614 2.22386 8 2.5 8H10.2929L7.14645 11.1464C6.95118 11.3417 6.95118 11.6583 7.14645 11.8536Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" transform="rotate(90 7.5 7.5)"></path>
+            </svg>
+        </div>
+        </div>
+    </a>
+        
+        </div>
+    </section>
+
+
+<div class=" justify-center h-[70%] w-full py-3 bg-gray-50/50  flex items-center ">
+                <div class="w-full mx-auto max-w-6xl ">
+                    
+                    <!-- Carousel Container -->
+                    <div id="book-carousel" class="relative" style="height: 60vh;">
+                        
+                        <!-- Carousel Wrapper -->
+                        <div class="relative h-full overflow-hidden rounded-xl">
+                            
+                            <!-- Carousel Track -->
+                            <div id="carousel-track" class="flex h-full transition-transform duration-500 ease-in-out">
+                                
+                                <!-- Slide Items -->
+                                
+                                <div class ="carousel-item flex-shrink-0 w-1/3 px-3" >
+                                    <div class ="ext-center bg-white bg-opacity-90  hover:shadow-2xl rounded-lg shadow-lg  h-full p-4 flex flex-col items-center t transition-shadow duration-300">
+                                        <img src = "books/cover/theShadowOfAethelgard.jpg" alt="Item 01" class = "w-full h-[98%] object-cover rounded-md mb-4">
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item flex-shrink-0 w-1/3 px-3">
+                                    <div class="bg-gray-900 rounded-lg shadow-lg h-full p-4 flex flex-col items-center text-center hover:shadow-2xl transition-shadow duration-300">
+                                        <img src="books/cover/theLanternmenOfBlackwood.jpg" alt="Item 02" class = " object-cover w-full h-[98%] rounded-md mb-4">
+                                        
+                                    </div>
+                                </div>
+
+                                <div class = "carousel-item flex-shrink-0 w-1/3 px-3">
+                                    <div class = "bg-white items-center text-center hover:shadow-2xl transition-shadow duration-300 rounded-lg shadow-lg h-full p-4 flex flex-col ">
+                                        <img src = "books/cover/12.jpg" alt="Item 03" class = " object-cover w-full h-[98%]  rounded-md mb-4">
+                                
+                                    </div>
+                                </div>
+
+                                <div class = "carousel-item flex-shrink-0 w-1/3 px-3">
+                                    <div class = "bg-gray-900 rounded-lg shadow-lg h-full p-4 flex flex-col items-center text-center hover:shadow-2xl transition-shadow duration-300">
+                                        <img  src = "books/cover/theLasttTansmission.jpg" alt="Item 04" class=" object-cover w-full h-[98%]  rounded-md mb-4">
+                                        
+                                    </div>
+
+                                </div>
+
+                                <div  class = "carousel-item flex-shrink-0 w-1/3 px-3">
+                                    <div class="bg-white duration-300 rounded-lg shadow-lg h-full p-4 flex flex-col text-center hover:shadow-2xl transition-shadow  items-center ">
+                                        <img src="books/cover/18.jpg" alt="Item 05" class=" object-cover w-full h-[98%]  rounded-md mb-4">
+                                        
+                                    </div>
+                                </div>
+
+                                <div class = "carousel-item flex-shrink-0 w-1/3 px-3">
+                                    <div class=" p-4 flex flex-col items-center text-center hover:shadow-2xl bg-gray-900 rounded-lg shadow-lg h-full  transition-shadow duration-300">
+                                        <img src="assets/img/books/6.jpg" alt="පොත 6" class=" object-cover w-full h-[98%]  rounded-md mb-4">
+                                        
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Slider Controls -->
+                        <button id = "prev-btn" class=" bg-white/80 hover:bg-white rounded-full absolute top-1/2 left-0 -translate-y-1/2 -translate-x-4 p-3 shadow-md z-10">
+                            <svg class = "w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+
+                        <button id = "next-btn" class=" hover:bg-white rounded-full p-3 shadow-md absolute top-1/2 right-0 -translate-y-1/2 translate-x-4 bg-white/80  z-10">
+                            <svg class = "w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+
+                        <!-- Indicators -->
+                        <div id="indicator-container" class=" left-1/2 -translate-x-1/2 flex space-x-2 absolute bottom-4 ">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+<div class=" bg-black/20 rounded-2xl text-center mb-16 md:mb-24 py-16 ">
+                    <h2 class=" text-white drop-shadow-lg text-4xl md:text-5xl font-extrabold mb-16 ">Meet Our Creative Minds</h2>
+                    
+                    <div class=" mx-auto px-16 relative max-w-8xl  ">
+                        <!-- Carousel Wrapper -->
+                        <div class = " rounded-xl overflow-hidden ">
+                            <div id = "carousel" class=" duration-500 ease-in-out flex transition-transform ">
+                                
+                                <!-- Kaweesha -->
+                                <div class="w-full md:w-1/2 lg:w-1/4 flex-shrink-0 px-2">
+                                    
+                                    <div class = "bg-white/10 p-6 flex flex-col items-center text-center transform hover:-translate-y-3 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg  transition-transform duration-300 h-full">
+                                        <img src = "assets/img/members/kaweesha.jpg" alt="Team Member" class="w-32 h-32 rounded-full mb-5 border-4 border-blue-500/70 shadow-lg">
+                                        <h3 class = " text-white ext-2xl font-bold ">Kaweesha Indeewari</h3>
+                                        <p class = "text-blue-500 font-semibold text-md mt-1">Founder & Visionary</p>
+                                        <p class = " text-sm leading-relaxed text-gray-300 mt-3 ">The passionate storyteller who sparked the idea of Cyber Reads into existence.</p>
+                                    </div>
+                                
+                                </div>
+                                
+                                <!-- Me -->
+                                <div class="w-full md:w-1/2 lg:w-1/4 flex-shrink-0 px-2">
+                                    <div class = "p-6 flex flex-col items-center text-center transform hover:-translate-y-3 transition-transform duration-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg  h-full">
+                                        <img src="assets/img/members/me.png" alt="Team Member" class="w-32 h-32 rounded-full mb-5 border-4 border-red-800/60 shadow-lg">
+                                        <h3 class=" font-bold text-white text-2xl ">Chamara Rathnayaka</h3>
+                                        <p class="text-red-600 font-semibold text-md mt-1" >Head of Curation</p>
+                                        <p class=" mt-3 text-sm leading-relaxed text-gray-300 ">Our literary expert, dedicated to finding the most captivating stories for you.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Rumesh -->
+                                <div class = " lg:w-1/4 flex-shrink-0 px-2 w-full md:w-1/2 ">
+                                    <div class = " rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transform hover:-translate-y-3 bg-white/10 backdrop-blur-md border border-white/20  transition-transform duration-300 h-full">
+                                        <img src = "assets/img/members/rumesh.jpg" alt="Team Member" class="w-32 h-32 rounded-full mb-5 border-4 border-yellow-700 shadow-lg">
+                                        <h3 class="text-2xl font-bold text-white">Rumesh Hapugolla</h3>
+                                        <p class = "text-yellow-500 font-semibold text-md mt-1">Lead Tech Architect</p>
+                                        <p class = "text-gray-300 mt-3 text-sm leading-relaxed">The genius coder who builds the seamless and magical reading experience.</p>
+                                    </div>
+
+                                </div>
+
+                                <!-- Dinethya -->
+                                <div class="w-full md:w-1/2 lg:w-1/4 flex-shrink-0 px-2">
+                                    <div class =" p-6 flex flex-col bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg  items-center text-center transform hover:-translate-y-3 transition-transform duration-300 h-full">
+                                        <img src ="assets/img/members/dinethya.jpg" alt="Team Member" class="w-32 h-32 rounded-full mb-5 border-4 border-blue-500/70 shadow-lg">
+                                        <h3 class =" text-white text-2xl font-bold ">A.Dinethya</h3>
+                                        <p class = "text-blue-500 font-semibold text-md mt-1">Creative Director</p>
+                                        <p class = "text-sm leading-relaxed text-gray-300 mt-3 ">The artistic mind behind our beautiful user interface.</p>
+                                    </div >
+                                </div>
+
+
+                                <!-- Sandeepa -->
+                                <div class =" px-2 w-full  md:w-1/2 lg:w-1/4  flex-shrink-0 ">
+                                    <div class = "p-6 flex flex-col items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg  text-center transform hover:-translate-y-3 transition-transform duration-300 h-full">
+                                        <img src ="assets/img/members/sandeepa.jpg" alt="Team Member" class="w-32 h-32 rounded-full mb-5 border-4 border-orange-400/70 shadow-lg">
+                                        <h3 class = "text-2xl font-bold text-white" >Sandeepa Dilshan</h3>
+                                        <p class ="text-orange-500 font-semibold text-md mt-1" >Community Manager</p>
+                                        <p class ="text-gray-300 mt-3 text-sm leading-relaxed" >Building bridges between readers and writers.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        
+                        <!-- Left Arrow -->
+                        <button onclick="slideLeft()" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-600 hover:bg-purple-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 focus:outline-none">
+                            
+                            <svg class=" h-6 w-6 " fill = "none" stroke="currentColor"  viewBox="0 0 24 24" >
+                                <path stroke-linecap = "round" stroke-linejoin = "round" stroke-width = "2" d = "M15 19l-7-7 7-7"></path>
+                            </svg>
+                        
+                        </button>
+                        
+                        <!-- Right Arrow -->
+                        <button onclick = "slideRight()" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-600 hover:bg-purple-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 focus:outline-none">
+                            
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        
+                        </button>
+                    
+                    </div>
+                    
+                    <!-- Dots Indicator -->
+                    <div class="flex justify-center mt-8 space-x-2">
+                        <button onclick = "goToSlide(0)" class = " transition-all duration-300 dot w-3 h-3 bg-white rounded-full "></button>
+                        <button onclick = "goToSlide(1)" class = " transition-all duration-300 dot w-3 h-3 bg-gray-400 rounded-full "></button>
+                    </div>
+
+                </div>
