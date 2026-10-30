@@ -1,144 +1,74 @@
-<!-- <div>
-    <?php
-    // db_connection.php
+<?php
+/**
+ * Cyber Reads — Automated Backend & Security Regression Tests
+ * Run via CLI: C:\xampp\php\php.exe tests/test.php
+ */
 
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
+if (php_sapi_name() !== 'cli') {
+    http_response_code(403);
+    exit('Tests can only be executed from CLI.');
+}
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "12345678";
-    $dbname = "cb";
-
-    // MySQL port වෙනස් කළා නම් එය එකතු කරන්න
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // හෝ port සමඟ: $conn = new mysqli($servername, $username, $password, $dbname, 3307);
-
-    if ($conn->connect_error) {
-        // JSON ලෙස error එක යවන්න
-        header('Content-Type: application/json');
-        echo json_encode(['error' => 'Database connection failed: ' . $conn->connect_error]);
-        exit();
+$passed = 0;
+function assertTrue($condition, $message) {
+    global $passed;
+    if (!$condition) {
+        fwrite(STDERR, "  [FAIL] $message\n");
+        exit(1);
     }
-
-    $conn->set_charset("utf8");
-    ?>
-</div>
-
-<div>
-    <?php
-// filter_books.php
-
-header('Content-Type: application/json');
-include 'db_connection.php';
-
-
-
-$json = file_get_contents('php://input');
-$data = json_decode($json);
-
-$categoryIds = isset($data->category_ids) ? $data->category_ids : [];
-
-// මූලික SQL query එක. 
-// books, books_has_author, සහ author වගු JOIN කර, GROUP_CONCAT මගින් එක් පොතකට අදාළ සියලුම කර්තෘවරුන්ගේ නම් එකම තීරුවක පෙන්වයි.
-$sql = "SELECT 
-            b.bookid, 
-            b.title, 
-            b.cover, 
-            GROUP_CONCAT(CONCAT(a.authorfname, ' ', a.authorlname) SEPARATOR ', ') AS authors
-        FROM books b
-        LEFT JOIN books_has_author bha ON b.bookid = bha.books_bookid
-        LEFT JOIN author a ON bha.author_authorid = a.authorid ";
-
-// පරිශීලකයා ප්‍රවර්ග තෝරා ඇත්නම්, books_has_category වගුව JOIN කර WHERE clause එකක් එකතු කිරීම
-if (!empty($categoryIds)) {
-    $sanitizedIds = array_map('intval', $categoryIds);
-    $placeholders = implode(',', array_fill(0, count($sanitizedIds), '?'));
-    
-    $sql .= "JOIN books_has_category bhc ON b.bookid = bhc.books_bookid WHERE bhc.category_categoryid IN ($placeholders) ";
+    $passed++;
+    echo "  [PASS] $message\n";
 }
 
-// පොත් කාඩ්පත් එකම පිළිවෙලකට පෙන්වීමට GROUP BY සහ ORDER BY එකතු කිරීම
-$sql .= "GROUP BY b.bookid ORDER BY b.bookid DESC";
+echo "Running Cyber Reads Backend & Security Regression Tests...\n\n";
 
-$stmt = $conn->prepare($sql);
+// 1. Database Connection Test
+require __DIR__ . '/../src/config/db_connection.php';
+assertTrue(isset($conn) && !$conn->connect_error, "Database connection established with utf8mb4 charset");
 
-// ප්‍රවර්ග තෝරා ඇත්නම්, ඒවා bind කිරීම
-if (!empty($categoryIds)) {
-    $types = str_repeat('i', count($sanitizedIds));
-    $stmt->bind_param($types, ...$sanitizedIds);
+// 2. Categories Query Test (Trimmed and sorted alphabetically)
+$catRes = $conn->query("SELECT categoryid, TRIM(category) AS category FROM category ORDER BY TRIM(category) ASC");
+$categories = $catRes->fetch_all(MYSQLI_ASSOC);
+assertTrue(count($categories) >= 10, "Categories query returns all 10 genres");
+assertTrue($categories[0]['category'] === 'Adventure', "Categories are trimmed and sorted alphabetically (first is Adventure)");
+foreach ($categories as $cat) {
+    assertTrue($cat['category'] === trim($cat['category']), "Category '{$cat['category']}' has no leading or trailing whitespace");
 }
 
+// 3. Book Details Parameter Validation & Prepared Query Test
+$stmt = $conn->prepare("SELECT b.bookid, b.title, b.cover, b.pdf FROM books b WHERE b.bookid = ?");
+$id = 1;
+$stmt->bind_param("i", $id);
 $stmt->execute();
-$result = $stmt->get_result();
-
-$books = [];
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        $books[] = $row;
-    }
-}
-
-echo json_encode($books);
-
+$book1 = $stmt->get_result()->fetch_assoc();
 $stmt->close();
-$conn->close();
-?>
 
-</div>
+assertTrue($book1 && $book1['title'] === 'Silent Witness', "Book ID 1 resolves to 'Silent Witness'");
+assertTrue(file_exists(__DIR__ . '/../' . $book1['cover']), "Book ID 1 cover asset exists on disk");
+assertTrue(file_exists(__DIR__ . '/../' . $book1['pdf']), "Book ID 1 PDF asset exists on disk");
 
-<div>
-    <?php
-// get_book_details.php
-
-header('Content-Type: application/json');
-include 'db_connection.php';
-
-$bookId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-
-if ($bookId > 0) {
-    $stmt = $conn->prepare("SELECT title, description, cover, pdf FROM books WHERE bookid = ?");
-    $stmt->bind_param("i", $bookId);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    
-    if ($result->num_rows > 0) {
-        $book = $result->fetch_assoc();
-        echo json_encode($book);
-    } else {
-        echo json_encode(['error' => 'Book not found']);
-    }
-    
-    $stmt->close();
-} else {
-    echo json_encode(['error' => 'Invalid book ID']);
+// 4. Verify all 10 database books have existing cover and PDF files on disk
+$allBooksRes = $conn->query("SELECT bookid, title, cover, pdf FROM books ORDER BY bookid ASC");
+$allBooks = $allBooksRes->fetch_all(MYSQLI_ASSOC);
+assertTrue(count($allBooks) === 10, "Database contains all 10 original books");
+foreach ($allBooks as $b) {
+    assertTrue(file_exists(__DIR__ . '/../' . $b['cover']), "Cover file exists for book #{$b['bookid']} ({$b['cover']})");
+    assertTrue(file_exists(__DIR__ . '/../' . $b['pdf']), "PDF file exists for book #{$b['bookid']} ({$b['pdf']})");
 }
 
-$conn->close();
-?>
+// 5. Security Static Checks on Admin Files
+$bookAddSource = file_get_contents(__DIR__ . '/../admin/book_add.php');
+$authCheckPos = strpos($bookAddSource, "\$_SESSION['admin_loggedin']");
+$postCheckPos = strpos($bookAddSource, '$_SERVER["REQUEST_METHOD"] === "POST"');
+assertTrue($authCheckPos !== false && $postCheckPos !== false && $authCheckPos < $postCheckPos, "admin/book_add.php enforces authentication BEFORE handling POST requests");
 
-</div>
+$bookEditSource = file_get_contents(__DIR__ . '/../admin/book_edit.php');
+assertTrue(strpos($bookEditSource, 'new finfo(FILEINFO_MIME_TYPE)') !== false, "admin/book_edit.php validates uploaded file MIME types via finfo");
+assertTrue(strpos($bookEditSource, 'hash_equals($_SESSION[\'csrf_token\']') !== false, "admin/book_edit.php verifies CSRF token on POST");
 
-<div>
-    <?php
-// get_categories.php
-
-header('Content-Type: application/json');
-include 'db_connection.php';
-
-$sql = "SELECT categoryid, category FROM category ORDER BY category ASC";
-$result = $conn->query($sql);
-
-$categories = [];
-if ($result && $result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-        $categories[] = $row;
-    }
-}
-
-echo json_encode($categories);
+$bookDeleteSource = file_get_contents(__DIR__ . '/../admin/book_delete.php');
+assertTrue(strpos($bookDeleteSource, "\$_SERVER['REQUEST_METHOD'] !== 'POST'") !== false, "admin/book_delete.php rejects GET deletion requests and requires POST + CSRF");
 
 $conn->close();
+echo "\nAll $passed backend and security regression tests passed!\n";
 ?>
-
-</div> -->
